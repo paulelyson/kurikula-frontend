@@ -11,4 +11,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/course/course-routing.module').then((m) => m.CourseRoutingModule),
   },
+	{
+		path: 'location',
+		loadChildren: () =>
+			import('./modules/location/location-routing.module').then((m) => m.LocationRoutingModule),
+	}
 ];
