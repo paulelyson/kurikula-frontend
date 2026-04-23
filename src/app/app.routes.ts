@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+	{
+		path: '',
+		loadChildren: () =>
+			import('./modules/auth/auth-routing.module').then((m) => m.AuthRoutingModule),
+	},
   {
     path: 'user',
     loadChildren: () =>
@@ -15,5 +20,6 @@ export const routes: Routes = [
 		path: 'location',
 		loadChildren: () =>
 			import('./modules/location/location-routing.module').then((m) => m.LocationRoutingModule),
-	}
+	},
+
 ];
