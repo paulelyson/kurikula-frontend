@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { ExceptionService } from './exception.service';
-import { ApiResponse } from '../models/api-response.model';
-import { Course } from '../models/course.model';
+import { ApiResponse } from '../models/data/api-response.model';
+import { Course } from '../models/data/course.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
