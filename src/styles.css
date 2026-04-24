@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+	/* Primary Text Colors */
+	--color-text-primary-strong: #4b7947;
+	--color-text-primary-default: #539364;
+	--color-text-primary-light: #6db681;
+
+	/* Gray Text Colors */
+	--color-text-gray-strong: #6c757d;
+	--color-text-gray-default: #868e96;
+	--color-text-gray-light: #adb5bd;
+
+}
+
 .container {
   max-width: 1200px;
   display: flex;

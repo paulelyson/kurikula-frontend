@@ -1,5 +1,5 @@
 <div class="container">
-  @for (course of courses(); track course._id) {
-    <app-data-row [columns]="getBorrowedEquipmentColumns()" />
+  @for (course of courses(); track course._id; let first = $first) {
+    <app-data-row [columns]="getBorrowedEquipmentColumns()" [showHeader]="first" />
   }
 </div>

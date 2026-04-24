@@ -9,7 +9,7 @@
 .header-row .col-header {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--primary-600);
+  color: var(--color-text-primary-default);
   text-transform: capitalize;
 }
 
@@ -31,11 +31,12 @@
   font-size: 1.1rem;
   font-weight: 600;
   text-transform: capitalize;
-  color: var(--primary-700);
+  color: var(--color-text-primary-strong);
 }
 .subtitle-text {
-  font-size: 0.8rem;
-  color: var(--gray-500);
+  /* font-size: 0.8rem; */
+	font-style: italic;
+  color: var(--color-text-gray-default);
 }
 
 /* Badge */
