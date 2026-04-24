@@ -1,4 +1,5 @@
-<p>course works!</p>
-@for(course of courses(); track course._id) {
-  <p>{{course.title}}</p>
-}
+<div class="container">
+  @for (course of courses(); track course._id) {
+    <app-data-row [columns]="getBorrowedEquipmentColumns()" />
+  }
+</div>
