@@ -1,7 +1,7 @@
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { CourseService } from '../../../services/course.service';
 import { Course } from '../../../models/data/course.model';
-import { RowColumnConfig } from '../../../models/ui/row-display.model';
+import { RowColumnConfig } from '../../../models/ui/data-row.model';
 
 @Component({
   selector: 'app-course',

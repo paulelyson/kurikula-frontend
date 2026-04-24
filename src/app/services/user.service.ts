@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { ApiResponse } from '../models/data/api-response.model';
 import { ExceptionService } from './exception.service';
 import { User } from '../models/data/user.model';
-import { RowColumnConfig } from '../models/ui/row-display.model';
+import { RowColumnConfig } from '../models/ui/data-row.model';
 
 @Injectable({
   providedIn: 'root',

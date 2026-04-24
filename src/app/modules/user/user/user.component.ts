@@ -2,7 +2,7 @@ import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/data/user.model';
 import { ActivatedRoute, Params } from '@angular/router';
-import { RowColumnConfig } from '../../../models/ui/row-display.model';
+import { RowColumnConfig } from '../../../models/ui/data-row.model';
 
 @Component({
   selector: 'app-user',

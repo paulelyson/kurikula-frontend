@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RowColumnConfig } from '../../../../models/ui/row-display.model';
+import { RowColumnConfig } from '../../../../models/ui/data-row.model';
 
 @Component({
   selector: 'app-data-row',
