@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { ExceptionService } from './exception.service';
+import { ApiResponse } from '../models/api-response.model';
+import { Course } from '../models/course.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +16,6 @@ export class CourseService {
   ) {}
 
   getCourses() {
-    return this.http.get('/api/courses').pipe(catchError(this.exceptionService.handleError));
+    return this.http.get<ApiResponse<Course[]>>(environment.api_url + '/api/course').pipe(catchError(this.exceptionService.handleError));
   }
 }
