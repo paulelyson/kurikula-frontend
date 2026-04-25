@@ -48,6 +48,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.registerForm.invalid) {
+      this.snackbarService.openSnackbar({
+        message: ['Please fill in all required fields correctly.'],
+        type: 'error',
+        icon: 'error',
+      });
+      return;
+    }
+
     const role: UserRole = {
       role: this.registerForm.value.role,
       department: this.registerForm.value.department,
