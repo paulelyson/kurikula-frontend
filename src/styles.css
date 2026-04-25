@@ -25,9 +25,14 @@
 }
 
 .container {
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-wrapper {
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  /* padding: 0 1em; */
   margin: auto;
 }

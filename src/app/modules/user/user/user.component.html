@@ -1,7 +1,9 @@
-<app-title>User</app-title>
-<app-user-toolbar />
 <div class="container">
-  @for (user of users(); track user._id; let first = $first) {
-    <app-data-row [columns]="getRowData(user)" [showHeader]="first" />
-  }
+  <app-title>User</app-title>
+  <app-user-toolbar />
+  <div class="list-wrapper">
+    @for (user of users(); track user._id; let first = $first) {
+      <app-data-row [columns]="getRowData(user)" [showHeader]="first" />
+    }
+  </div>
 </div>
