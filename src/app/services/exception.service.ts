@@ -7,8 +7,7 @@ import { throwError } from 'rxjs';
 })
 export class ExceptionService {
 
-  handleError(error: HttpErrorResponse) {
-    console.error('An error occurred:', error);
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+  handleError(err: HttpErrorResponse) {
+    return throwError(() => new Error(err.error.errors || err.error.message));
   }
 }

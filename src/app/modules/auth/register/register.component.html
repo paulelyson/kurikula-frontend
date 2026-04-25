@@ -1,16 +1,18 @@
-<div class="container">
-  <app-title>Register</app-title>
-  <div class="register-wrapper">
-    <app-input placeholder="ID Number" />
-    <app-input placeholder="Email" />
-    <app-input placeholder="First Name" />
-    <app-input placeholder="Last Name" />
-    <app-input placeholder="Middle Name" />
-    <app-input placeholder="Password" />
-    <app-input placeholder="Role" />
-    <app-input placeholder="Department" />
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <app-title>Register</app-title>
+    <div class="register-wrapper">
+      <app-input placeholder="ID Number" formControlName="idNumber" />
+      <app-input placeholder="Email" formControlName="email" />
+      <app-input placeholder="First Name" formControlName="firstName" />
+      <app-input placeholder="Last Name" formControlName="lastName" />
+      <app-input placeholder="Middle Name" formControlName="middleName" />
+      <app-input placeholder="Password" formControlName="password" />
+      <app-input placeholder="Role" formControlName="role" [readonly]="true"/>
+      <app-input placeholder="Department" formControlName="department" />
+    </div>
+    <div class="action-wrapper">
+      <app-button btnType="submit">Submit</app-button>
+    </div>
   </div>
-  <div class="action-wrapper">
-    <app-button btnType="submit">Submit</app-button>
-  </div>
-</div>
+</form>

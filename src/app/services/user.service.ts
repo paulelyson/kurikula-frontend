@@ -23,6 +23,12 @@ export class UserService {
     )
   }
 
+  createUser(userData: Partial<User>) {
+    return this.http.post<ApiResponse<User>>(environment.api_url + '/api/user', userData).pipe(
+      catchError(this.exceptionService.handleError)
+    )
+  }
+
   getRowData(user: User): RowColumnConfig[] {
     const fullName = `${user.lastName}, ${user.firstName} ${user.middleName}`;
     const idNumber = user.idNumber;
