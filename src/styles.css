@@ -24,7 +24,7 @@
   --color-border-primary-default: #539364;
   --color-border-primary-light: #6db681;
 
-   /* Background */
+  /* Background */
   --color-bg-primary-idle: #cbe7ce;
   --color-bg-primary-hover: #6db681;
   --color-bg-primary-active: #539364;
@@ -37,15 +37,20 @@
   --color-text-gray-default: #868e96;
   --color-text-gray-light: #adb5bd;
 
+  /* Background */
+  --color-bg-gray-idle: #e7ecf3;
+  --color-bg-gray-hover: #adb5bd;
+  --color-bg-gray-active: #868e96;
+
   /* ================================
 	DANGER
 	================================ */
-   /* Text */
+  /* Text */
   --color-text-danger-strong: #991b1b;
   --color-text-danger-default: #b91c1c;
   --color-text-danger-light: #ef4444;
   /* Background */
-  --color-bg-danger-idle: #fce8e6;;
+  --color-bg-danger-idle: #fce8e6;
   --color-bg-danger-hover: #ef4444;
   --color-bg-danger-active: #dc2626;
 }

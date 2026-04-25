@@ -1,0 +1,24 @@
+.badge-container {
+  min-width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.badge-container.default {
+  border-radius: 12px;
+  background: var(--color-bg-gray-idle);
+  color: var(--color-text-gray-default);
+}
+
+.badge-container.primary {
+  border-radius: 12px;
+  background: var(--color-bg-primary-idle);
+  color: var(--color-text-primary-default);
+}
