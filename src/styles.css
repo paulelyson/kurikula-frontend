@@ -36,3 +36,11 @@
   flex-direction: column;
   margin: auto;
 }
+
+.action-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}

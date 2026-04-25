@@ -16,7 +16,6 @@
     height: 70px;
     margin-bottom: -22px;
 
-    // Input override
     .mat-mdc-form-field-focus-overlay {
       background-color: transparent;
     }
@@ -31,8 +30,7 @@ html {
         primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
-      typography: 'Poppins',
-      // ← tell Material to use Poppins
+      typography: 'Poppins', // ← tell Material to use Poppins
       density: 0,
     )
   );
