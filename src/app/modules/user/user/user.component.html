@@ -1,4 +1,5 @@
 <div class="container">
+  <app-title></app-title>
   @for (user of users(); track user._id; let first = $first) {
     <app-data-row [columns]="getRowData(user)" [showHeader]="first" />
   }
