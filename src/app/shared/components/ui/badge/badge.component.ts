@@ -1,9 +1,30 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+
+type BadgeSize = 'sm' | 'md' | 'lg';
+export type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'default';
+interface IconType {
+  type: BadgeType;
+  icon: string;
+}
 
 @Component({
   selector: 'app-badge',
-  imports: [],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './badge.component.html',
   styleUrl: './badge.component.css',
 })
-export class BadgeComponent {}
+export class BadgeComponent {
+  @Input() size: BadgeSize = 'md';
+  @Input() type: BadgeType = 'default';
+  @Input() hasBadgeIcon: boolean = false;
+  @Input() hasCloseIcon: boolean = false;
+  @Input() clickable: boolean = true;
+  @Output() closed: EventEmitter<string> = new EventEmitter<string>();
+  iconlist: IconType[] = [];
+
+  onClosed(): void {
+    this.closed.emit();
+  }
+}

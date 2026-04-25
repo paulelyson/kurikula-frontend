@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RowColumnConfig } from '../../../../models/ui/data-row.model';
+import { BadgeComponent } from '../../ui/badge/badge.component';
 
 @Component({
   selector: 'app-data-row',
-  imports: [],
+  imports: [BadgeComponent],
   templateUrl: './data-row.component.html',
   styleUrl: './data-row.component.css',
 })
