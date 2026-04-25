@@ -8,6 +8,7 @@ import { UserRole } from '../../../models/data/user.model';
 import { DepartmentService } from '../../../services/department.service';
 import { Department } from '../../../models/data/deparment.model';
 import { AutocompleteComponent, AutocompleteOption } from '../../../shared/components/forms/autocomplete/autocomplete.component';
+import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: 'app-register',
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private departmentService: DepartmentService,
+    private snackbarService: SnackbarService,
   ) {
     this.registerForm = this.fb.group({
       idNumber: ['', Validators.required],
@@ -61,7 +63,13 @@ export class RegisterComponent implements OnInit {
         // Optionally, reset the form or navigate to another page
         this.registerForm.reset();
       },
-      error: (err) => console.error(err),
+      error: (err) => {
+        this.snackbarService.openSnackbar({
+          message: err || 'An error occurred while creating the user.',
+          type: 'error',
+          icon: 'error',
+        });
+      },
     });
   }
 }
