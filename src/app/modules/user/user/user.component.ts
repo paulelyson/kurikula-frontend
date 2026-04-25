@@ -3,12 +3,15 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/data/user.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RowColumnConfig } from '../../../models/ui/data-row.model';
+import { TitleComponent } from '../../../shared/components/layout/title/title.component';
+import { DataRowComponent } from '../../../shared/components/layout/data-row/data-row.component';
+import { UserToolbarComponent } from '../user-toolbar/user-toolbar.component';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
-  standalone: false,
+  imports: [TitleComponent, DataRowComponent, UserToolbarComponent]
 })
 export class UserComponent implements OnInit {
   users: WritableSignal<User[]> = signal([]);
