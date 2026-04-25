@@ -1,12 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-	/* Primary Text Colors */
+	/* ================================
+	PRIMARY
+	================================ */
+	
+	/* Text */
 	--color-text-primary-strong: #4b7947;
 	--color-text-primary-default: #539364;
 	--color-text-primary-light: #6db681;
 
-	/* Gray Text Colors */
+		/* Border */
+	--color-border-primary-strong: #4b7947;
+	--color-border-primary-default: #539364;
+	--color-border-primary-light: #6db681;
+
+
+	/* ================================
+	GREY
+	================================ */
 	--color-text-gray-strong: #6c757d;
 	--color-text-gray-default: #868e96;
 	--color-text-gray-light: #adb5bd;
