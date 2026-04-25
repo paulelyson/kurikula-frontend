@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { InputComponent } from '../../../shared/components/forms/input/input.component';
 import { TitleComponent } from '../../../shared/components/layout/title/title.component';
 import { ButtonComponent } from '../../../shared/components/ui/button/button.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { UserRole } from '../../../models/data/user.model';
+import { DepartmentService } from '../../../services/department.service';
+import { Department } from '../../../models/data/deparment.model';
+import { AutocompleteComponent } from '../../../shared/components/forms/autocomplete/autocomplete.component';
 
 @Component({
   selector: 'app-register',
-  imports: [InputComponent, TitleComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [InputComponent, TitleComponent, AutocompleteComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
+  departments: WritableSignal<Department[]> = signal([]);
   registerForm: FormGroup;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
+    private departmentService: DepartmentService,
   ) {
     this.registerForm = this.fb.group({
       idNumber: ['', Validators.required],
@@ -28,6 +33,12 @@ export class RegisterComponent {
       role: ['student', Validators.required],
       department: ['', Validators.required],
       age: [18, [Validators.min(0)]],
+    });
+  }
+
+  ngOnInit(): void {
+    this.departmentService.getDepartments().subscribe({
+      next: (resp) => this.departments.set(resp.data),
     });
   }
 
