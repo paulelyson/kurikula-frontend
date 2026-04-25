@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, computed, OnInit, signal, WritableSignal } from '@angular/core';
 import { InputComponent } from '../../../shared/components/forms/input/input.component';
 import { TitleComponent } from '../../../shared/components/layout/title/title.component';
 import { ButtonComponent } from '../../../shared/components/ui/button/button.component';
@@ -7,7 +7,7 @@ import { UserService } from '../../../services/user.service';
 import { UserRole } from '../../../models/data/user.model';
 import { DepartmentService } from '../../../services/department.service';
 import { Department } from '../../../models/data/deparment.model';
-import { AutocompleteComponent } from '../../../shared/components/forms/autocomplete/autocomplete.component';
+import { AutocompleteComponent, AutocompleteOption } from '../../../shared/components/forms/autocomplete/autocomplete.component';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +18,9 @@ import { AutocompleteComponent } from '../../../shared/components/forms/autocomp
 export class RegisterComponent implements OnInit {
   departments: WritableSignal<Department[]> = signal([]);
   registerForm: FormGroup;
+  departmentOptions = computed((): AutocompleteOption[] => {
+    return this.departments().map((dept) => ({ view: dept.code, value: dept._id }));
+  });
   constructor(
     private fb: FormBuilder,
     private userService: UserService,

@@ -9,7 +9,7 @@
       <app-input placeholder="Middle Name" formControlName="middleName" />
       <app-input placeholder="Password" formControlName="password" />
       <app-input placeholder="Role" formControlName="role" [readonly]="true" />
-      <app-autocomplete></app-autocomplete>
+      <app-autocomplete placeholder="Department" [options]="departmentOptions()"/>
     </div>
     <div class="action-wrapper">
       <app-button btnType="submit">Submit</app-button>
