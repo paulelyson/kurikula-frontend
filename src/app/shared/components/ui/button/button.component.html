@@ -1,1 +1,6 @@
-<p>button works!</p>
+<button [type]="btnType" class="btn-custom" [ngClass]="[type, shade, size, width, variant]" (click)="onClicked()" [disabled]="disabled">
+  @if (icon !== 'none') {
+    <!-- <app-icon [name]="icon"></app-icon> -->
+  }
+  <ng-content></ng-content>
+</button>
