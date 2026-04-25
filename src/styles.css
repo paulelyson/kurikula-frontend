@@ -1,28 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-	/* ================================
+  --color-background-header: #eaefdb;
+  /* ================================
 	PRIMARY
 	================================ */
-	
-	/* Text */
-	--color-text-primary-strong: #4b7947;
-	--color-text-primary-default: #539364;
-	--color-text-primary-light: #6db681;
 
-		/* Border */
-	--color-border-primary-strong: #4b7947;
-	--color-border-primary-default: #539364;
-	--color-border-primary-light: #6db681;
+  /* Text */
+  --color-text-primary-strong: #4b7947;
+  --color-text-primary-default: #539364;
+  --color-text-primary-light: #6db681;
 
+  /* Border */
+  --color-border-primary-strong: #4b7947;
+  --color-border-primary-default: #539364;
+  --color-border-primary-light: #6db681;
 
-	/* ================================
+  /* ================================
 	GREY
 	================================ */
-	--color-text-gray-strong: #6c757d;
-	--color-text-gray-default: #868e96;
-	--color-text-gray-light: #adb5bd;
-
+  --color-text-gray-strong: #6c757d;
+  --color-text-gray-default: #868e96;
+  --color-text-gray-light: #adb5bd;
 }
 
 .container {
