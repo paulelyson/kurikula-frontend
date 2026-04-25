@@ -3,6 +3,14 @@
 :root {
   --color-background-header: #eaefdb;
   /* ================================
+	FONTS
+	================================ */
+  --font-size-xs: 10px;
+  --font-size-sm: var(--mat-sys-body-small-size);
+  --font-size-md: var(--mat-sys-body-medium-size);
+  --font-size-lg: var(--mat-sys-body-large-size);
+
+  /* ================================
 	PRIMARY
 	================================ */
 
@@ -16,12 +24,30 @@
   --color-border-primary-default: #539364;
   --color-border-primary-light: #6db681;
 
+   /* Background */
+  --color-bg-primary-idle: #cbe7ce;
+  --color-bg-primary-hover: #6db681;
+  --color-bg-primary-active: #539364;
+
   /* ================================
 	GREY
 	================================ */
+  /* Text */
   --color-text-gray-strong: #6c757d;
   --color-text-gray-default: #868e96;
   --color-text-gray-light: #adb5bd;
+
+  /* ================================
+	DANGER
+	================================ */
+   /* Text */
+  --color-text-danger-strong: #991b1b;
+  --color-text-danger-default: #b91c1c;
+  --color-text-danger-light: #ef4444;
+  /* Background */
+  --color-bg-danger-idle: #fce8e6;;
+  --color-bg-danger-hover: #ef4444;
+  --color-bg-danger-active: #dc2626;
 }
 
 .container {

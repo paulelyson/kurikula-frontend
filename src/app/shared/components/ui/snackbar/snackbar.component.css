@@ -1,0 +1,21 @@
+.snackbar-container {
+  display: flex;
+  width: 640px;
+  min-height: 42px;
+  padding: 6px 16px;
+  gap: 4px;
+}
+
+.snackbar-container.success {
+  border-radius: 12px;
+  background: var(--color-bg-primary-idle);
+  color: var(--color-text-primary-default);
+  font-size: var(--font-size-sm);
+}
+
+.snackbar-container.error {
+  border-radius: 12px;
+  background: var(--color-bg-danger-idle);
+  color: var(--color-text-danger-default);
+  font-size: var(--font-size-sm);
+}

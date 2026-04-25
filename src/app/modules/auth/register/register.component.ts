@@ -59,13 +59,17 @@ export class RegisterComponent implements OnInit {
     };
     this.userService.createUser(userData).subscribe({
       next: (resp) => {
-        console.log('User created successfully:', resp);
         // Optionally, reset the form or navigate to another page
         this.registerForm.reset();
+        this.snackbarService.openSnackbar({
+          message: ['User created successfully'],
+          type: 'success',
+          icon: 'check',
+        });
       },
       error: (err) => {
         this.snackbarService.openSnackbar({
-          message: err || 'An error occurred while creating the user.',
+          message: [err || 'An error occurred while creating the user.'],
           type: 'error',
           icon: 'error',
         });
