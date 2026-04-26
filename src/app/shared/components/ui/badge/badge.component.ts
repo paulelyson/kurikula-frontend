@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { Size, Variant } from '../../../../models/ui/common.model';
 
-type BadgeSize = 'sm' | 'md' | 'lg';
-export type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'default';
 interface IconType {
-  type: BadgeType;
+  variant: Variant;
   icon: string;
 }
 
@@ -16,8 +15,8 @@ interface IconType {
   styleUrl: './badge.component.css',
 })
 export class BadgeComponent {
-  @Input() size: BadgeSize = 'md';
-  @Input() type: BadgeType = 'default';
+  @Input() size: Size = 'sm';
+  @Input() variant: Variant = 'neutral';
   @Input() hasBadgeIcon: boolean = false;
   @Input() hasCloseIcon: boolean = false;
   @Input() clickable: boolean = true;

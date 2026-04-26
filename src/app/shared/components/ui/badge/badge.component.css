@@ -9,16 +9,46 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+  border-radius: 12px;
+
 }
 
-.badge-container.default {
-  border-radius: 12px;
+/* Variant: Neutral */
+.badge-container.neutral {
   background: var(--color-bg-gray-idle);
-  color: var(--color-text-gray-default);
+  color: var(--color-text);
 }
 
+/* Variant: Primary */
 .badge-container.primary {
-  border-radius: 12px;
   background: var(--color-bg-primary-idle);
   color: var(--color-text-primary-default);
+}
+
+/* Size: xs */
+.badge-container.xs {
+  padding: 2px 6px;
+  line-height: var(--font-size-xs);
+  font-size: var(--font-size-xs);
+}
+
+/* Size: sm */
+.badge-container.sm {
+  padding: 4px 8px;
+  line-height: var(--font-size-sm);
+  font-size: var(--font-size-sm);
+}
+
+/* Size: md */
+.badge-container.md {
+  padding: 4px 8px;
+  line-height: var(--font-size-md);
+  font-size: var(--font-size-md);
+}
+
+/* Size: lg */
+.badge-container.lg {
+  padding: 4px 10px;
+  line-height: var(--font-size-lg);
+  font-size: var(--font-size-lg);
 }
