@@ -9,29 +9,85 @@
   font-weight: 550;
   font-family: 'Poppins';
   color: var(--color-text);
+  background: var(--color-bg-gray-idle);
+  border: 0px solid var(--color-border-gray-idle);
+  border-radius: 6px;
+}
+
+/**
+* Sizes
+*/
+.btn-custom.xs {
+  padding: 4px 6px;
+  line-height: var(--font-size-xs);
+  font-size: var(--font-size-xs);
+}
+
+.btn-custom.sm {
+  border-radius: 5px;
+  padding: 4px 8px;
+  line-height: var(--font-size-sm);
+  font-size: var(--font-size-sm);
+}
+
+.btn-custom.md {
+  padding: 4px 8px;
+  line-height: var(--font-size-md);
+  font-size: var(--font-size-md);
+}
+
+.btn-custom.lg {
+  padding: 4px 10px;
+  line-height: var(--font-size-lg);
+  font-size: var(--font-size-lg);
+}
+
+/*
+ * Variants 
+ */
+.btn-custom.neutral {
+  background: var(--color-bg-gray-idle);
+  color: var(--color-text);
+}
+
+.btn-custom.primary {
+  background: var(--color-bg-primary-idle);
+  color: var(--color-text-primary-default);
+}
+
+.btn-custom.accent {
+  background: var(--color-bg-accent-idle);
+  color: var(--color-text-accent-default);
+}
+
+.btn-custom.success {
+  background: var(--color-bg-success-idle);
+  color: var(--color-text-success-default);
+}
+
+.btn-custom.warning {
+  background: var(--color-bg-warning-idle);
+  color: var(--color-text-warning-default);
+}
+
+.btn-custom.danger {
+  background: var(--color-bg-danger-idle);
+  color: var(--color-text-danger-default);
 }
 
 /*** Appearance: Link */
 .btn-custom.link {
   border: none;
+  background: transparent;
   &:hover {
     text-decoration: underline;
     font-weight: 550;
   }
 }
 
-/** Size: sm */
-.btn-custom.sm {
-  border-radius: 5px;
-  padding: 0px 8px;
-  font-size: var(--font-size-sm)
-}
-
-
-
 /** Disabled State */
 .btn-custom:disabled,
-.btn-custom[disabled]{
+.btn-custom[disabled] {
   border: none;
   background: var(--color-bg-gray-idle);
   color: var(--color-text-gray-light);
