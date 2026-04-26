@@ -1,22 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonShade, ButtonSize, ButtonType, ButtonVariant, ButtonWidth } from '../../../../models/ui/button-config.model';
+import { ButtonAppearance, ButtonShade, ButtonWidth } from '../../../../models/ui/button-config.model';
+import { IconComponent } from '../icon/icon.component';
+import { Size, Variant } from '../../../../models/ui/common.model';
 @Component({
   selector: 'app-button',
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
 
   templateUrl: './button.component.html',
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
   @Input() action: string = '';
-  @Input() variant: ButtonVariant = 'default';
-  @Input() size: ButtonSize = 'md';
-  @Input() type: ButtonType = 'default';
+  @Input() variant: Variant = 'neutral';
+  @Input() appearance: ButtonAppearance = 'filled';
+  @Input() size: Size = 'md';
+  @Input() type: 'submit' | 'button' | 'reset' = 'button';
   @Input() shade: ButtonShade = 'default';
   @Input() width: ButtonWidth = 'width-auto';
-  @Input() btnType: 'submit' | 'button' | 'reset' = 'button';
-  @Input() icon: string = 'none';
+  @Input() icon: string = '';
   @Input() disabled: boolean = false;
   @Output() btnclicked: EventEmitter<string> = new EventEmitter<string>();
 

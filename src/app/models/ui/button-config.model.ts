@@ -1,18 +1,23 @@
-export type ButtonSize = 'sm' | 'md' | 'lg';
-export type ButtonType = 'default' | 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'danger';
+import { Size, Variant } from './common.model';
+
 export type ButtonShade = 'default' | 'light';
 export type ButtonWidth = 'width-filled' | 'width-auto';
-export type ButtonVariant = 'default' | 'link';
+export type ButtonAppearance =
+  | 'filled'
+  | 'outlined'
+  | 'ghost' // visual style
+  | 'link'
+  | 'icon';
 
 export class ButtonConfig {
   id: number = 0;
   name: string = '';
-  size: ButtonSize = 'md';
-  type: ButtonType = 'default';
+  size: Size = 'md';
+  variant: Variant = 'neutral';
+  appearance: ButtonAppearance = 'filled';
   shade: ButtonShade = 'default';
   width: ButtonWidth = 'width-auto';
-  btnType: 'submit' | 'button' | 'reset' = 'button';
-  variant: ButtonVariant = 'default';
+  type: 'submit' | 'button' | 'reset' = 'button';
 
   constructor(partial?: Partial<ButtonConfig>) {
     Object.assign(this, partial);
