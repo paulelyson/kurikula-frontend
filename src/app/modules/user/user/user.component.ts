@@ -6,12 +6,13 @@ import { RowColumnConfig } from '../../../models/ui/data-row.model';
 import { TitleComponent } from '../../../shared/components/layout/title/title.component';
 import { DataRowComponent } from '../../../shared/components/layout/data-row/data-row.component';
 import { UserToolbarComponent } from '../user-toolbar/user-toolbar.component';
+import { DialogService } from '../../../services/dialog.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
-  imports: [TitleComponent, DataRowComponent, UserToolbarComponent]
+  imports: [TitleComponent, DataRowComponent, UserToolbarComponent],
 })
 export class UserComponent implements OnInit {
   users: WritableSignal<User[]> = signal([]);
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
+    private dialogService: DialogService,
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,16 @@ export class UserComponent implements OnInit {
 
   getRowData(user: User): RowColumnConfig[] {
     return this.userService.getRowData(user);
+  }
+
+  onActionClicked(event: string, user: User) {
+    switch (event) {
+      case 'View Detail':
+        this.dialogService.openUserDetailDialog(user)
+        break;
+      default:
+        break;
+    }
   }
 
   queryParamsHandling(params: Params) {
