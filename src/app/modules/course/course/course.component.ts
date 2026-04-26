@@ -5,12 +5,13 @@ import { RowColumnConfig } from '../../../models/ui/data-row.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TitleComponent } from '../../../shared/components/layout/title/title.component';
 import { DataRowComponent } from '../../../shared/components/layout/data-row/data-row.component';
+import { TabComponent } from '../../../shared/components/layout/tab/tab.component';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
-  imports: [TitleComponent, DataRowComponent]
+  imports: [TitleComponent, DataRowComponent, TabComponent]
 })
 export class CourseComponent implements OnInit {
   courses: WritableSignal<Course[]> = signal([]);
