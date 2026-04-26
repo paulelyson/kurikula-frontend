@@ -12,10 +12,10 @@ export type IconType = 'primary' | 'success' | 'warning' | 'danger';
   styleUrl: './icon.component.css',
 })
 export class IconComponent {
-  @Input() name: string = 'numbers';
+  @Input() name?: string = 'numbers';
   @Input() size: IconSize = 'sm';
-  @Input() type: IconType = 'primary';
-  @Input() tooltip: string = '';
+  @Input() type?: IconType = 'primary';
+  @Input() tooltip?: string = '';
   @Input() clickable: boolean = true;
   @Output() iconclicked: EventEmitter<string> = new EventEmitter<string>();
 

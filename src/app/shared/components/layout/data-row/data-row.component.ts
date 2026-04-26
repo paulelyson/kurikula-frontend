@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RowColumnConfig } from '../../../../models/ui/data-row.model';
 import { BadgeComponent } from '../../ui/badge/badge.component';
+import { IconComponent } from '../../ui/icon/icon.component';
+import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({
   selector: 'app-data-row',
-  imports: [BadgeComponent],
+  imports: [BadgeComponent, IconComponent, ButtonComponent],
   templateUrl: './data-row.component.html',
   styleUrl: './data-row.component.css',
 })

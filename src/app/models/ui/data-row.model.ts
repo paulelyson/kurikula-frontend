@@ -1,4 +1,4 @@
-import { IconSize } from '../../shared/components/ui/icon/icon.component';
+import { ButtonAppearance } from './button-config.model';
 import { Size, Variant } from './common.model';
 
 export type RowContentType = 'image' | 'title' | 'text' | 'badge' | 'action';
@@ -10,6 +10,7 @@ export class RowActionConfig {
   size: Size = 'md';
   variant: Variant = 'neutral';
   tooltip?: string;
+  appearance?: ButtonAppearance = 'filled';
 
   constructor(partial?: Partial<RowActionConfig>) {
     Object.assign(this, partial);

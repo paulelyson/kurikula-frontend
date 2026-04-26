@@ -41,7 +41,14 @@ export class UserService {
       { id: 2, type: 'text', header: 'Departments', content: depts, weight: 2 },
       { id: 3, type: 'text', header: 'Role', content: roles, weight: 2 },
       { id: 5, type: 'badge', header: 'Status', content: status, weight: 1.5 },
-      { id: 6, type: 'action', header: '', actions: [], weight: 1 },
+      { id: 6, type: 'action', header: 'Acc', actions: [{
+        type: 'button',
+        name: 'Deactivate',
+        icon: 'block',
+        size: 'sm',
+        variant: 'primary',
+        appearance: 'link'
+      }], weight: 1 },
     ];
   }
 
