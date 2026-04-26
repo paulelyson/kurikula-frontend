@@ -4,7 +4,7 @@ import { catchError, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiResponse } from '../models/data/api-response.model';
 import { ExceptionService } from './exception.service';
-import { User } from '../models/data/user.model';
+import { User, USER_STATUS_VARIANT } from '../models/data/user.model';
 import { RowColumnConfig } from '../models/ui/data-row.model';
 
 @Injectable({
@@ -37,7 +37,7 @@ export class UserService {
       { id: 1, type: 'title', header: 'Name', content: fullName, subtitle: `ID: ${idNumber}`, weight: 2.5 },
       { id: 2, type: 'text', header: 'Departments', content: depts, weight: 1 },
       { id: 3, type: 'text', header: 'Role', content: roles, weight: 1 },
-      { id: 5, type: 'badge', header: 'Status', content: status, weight: 1 },
+      { id: 5, type: 'badge', header: 'Status', variant: USER_STATUS_VARIANT[status], content: status, weight: 1 },
       {
         id: 6,
         type: 'action',
@@ -48,15 +48,15 @@ export class UserService {
             name: 'Deactivate',
             icon: 'block',
             size: 'xs',
-            variant: 'primary',
+            variant: USER_STATUS_VARIANT[status],
             appearance: 'link',
           },
-            {
+          {
             type: 'button',
             name: 'View Detail',
-            icon: 'info',
+            icon: 'info_outlined',
             size: 'xs',
-            variant: 'primary',
+            variant: USER_STATUS_VARIANT[status],
             appearance: 'link',
           },
         ],

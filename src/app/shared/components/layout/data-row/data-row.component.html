@@ -34,7 +34,7 @@
       @case ('badge') {
         <div class="col badge-col">
           @for (b of asArray(col.content); track b) {
-            <app-badge size="sm">{{ b }}</app-badge>
+            <app-badge size="sm" [variant]="col.variant || 'neutral'">{{ b }}</app-badge>
           }
         </div>
       }

@@ -1,5 +1,13 @@
+import { Variant } from "../ui/common.model";
 import { Department } from "./deparment.model";
 import { MongoDocument } from "./mongo-document.model";
+
+export const USER_STATUS_VARIANT: Record<UserStatus, Variant> = {
+  pending_approval: 'warning',
+  active:           'success',
+  deactivated:      'neutral',
+  rejected:         'danger',
+};
 
 type UserStatus = 'pending_approval' | 'active' | 'deactivated' | 'rejected';
 
