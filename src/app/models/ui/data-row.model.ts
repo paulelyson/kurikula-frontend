@@ -25,5 +25,6 @@ export interface RowColumnConfig {
   subtitle?: string; // only for type: 'title'
   image?: string; // only for type: 'image'
   weight?: number; // relative column width, default 1
+  variant?: Variant;
   actions?: RowActionConfig[]; // only for type: 'action'
 }
