@@ -5,4 +5,5 @@ export interface Course extends MongoDocument {
   code: string;
   title: string;
   department: Department;
+  units: number
 }

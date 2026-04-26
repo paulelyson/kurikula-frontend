@@ -2,44 +2,38 @@ import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { CourseService } from '../../../services/course.service';
 import { Course } from '../../../models/data/course.model';
 import { RowColumnConfig } from '../../../models/ui/data-row.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import { TitleComponent } from '../../../shared/components/layout/title/title.component';
+import { DataRowComponent } from '../../../shared/components/layout/data-row/data-row.component';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
-  standalone: false,
+  imports: [TitleComponent, DataRowComponent]
 })
 export class CourseComponent implements OnInit {
   courses: WritableSignal<Course[]> = signal([]);
-  constructor(private courseService: CourseService) {}
+  constructor(
+    private courseService: CourseService,
+    private activatedRoute: ActivatedRoute,
+  ) {}
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params) => this.queryParamsHandling(params));
+  }
+
+  getCourses() {
     this.courseService.getCourses().subscribe((resp) => {
       this.courses.set(resp.data);
     });
   }
 
-  getBorrowedEquipmentColumns(): RowColumnConfig[] {
-    return [
-      {
-        id: 0,
-        type: 'image',
-        header: '',
-        image: undefined,
-      },
-      { id: 1, type: 'title', header: 'Header 1', content: 'Lorem Ipsum', subtitle: 'Lorem Ipsum', weight: 2.5 },
-      { id: 2, type: 'text', header: 'Header 2', content: 'Lorem Ipsum', weight: 2 },
-      { id: 3, type: 'text', header: 'Header 3', content: 'Lorem Ipsum', weight: 2 },
-      { id: 4, type: 'text', header: 'Header 4', content: '1', weight: 1 },
-      { id: 5, type: 'badge', header: 'Header 5', content: ['1 lorem'], weight: 1.5 },
-      { id: 6, type: 'text', header: 'Header 6', content: 'Lorem Ipsum', weight: 1.5 },
-      {
-        id: 7,
-        type: 'action',
-        header: '',
-        actions: [],
-        weight: 1,
-      },
-    ];
+  getRowData(course: Course):  RowColumnConfig[] {
+    return this.courseService.getRowData(course);
+  }
+
+  queryParamsHandling(params: Params) {
+    this.getCourses()
   }
 }

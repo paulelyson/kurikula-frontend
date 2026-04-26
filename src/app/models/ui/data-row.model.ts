@@ -8,7 +8,7 @@ export class RowActionConfig {
   name: string = '';
   icon: string = '';
   size: Size = 'md';
-  variant: Variant = 'neutral';
+  variant?: Variant = 'neutral';
   tooltip?: string;
   appearance?: ButtonAppearance = 'filled';
 

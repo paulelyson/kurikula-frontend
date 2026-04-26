@@ -6,7 +6,7 @@ import { DataRowComponent } from '../../shared/components/layout/data-row/data-r
 import { CourseComponent } from './course/course.component';
 
 @NgModule({
-  declarations: [CourseComponent],
-  imports: [CommonModule, CourseRoutingModule, DataRowComponent],
+  declarations: [],
+  imports: [CommonModule, CourseRoutingModule],
 })
 export class CourseModule {}

@@ -1,5 +1,8 @@
 <div class="container">
-  @for (course of courses(); track course._id; let first = $first) {
-    <app-data-row [columns]="getBorrowedEquipmentColumns()" [showHeader]="first" />
-  }
+  <app-title>Courses</app-title>
+  <div class="list-wrapper">
+    @for (course of courses(); track course._id; let first = $first) {
+      <app-data-row [columns]="getRowData(course)" [showHeader]="first" />
+    }
+  </div>
 </div>
