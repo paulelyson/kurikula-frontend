@@ -3,10 +3,11 @@ import { RowColumnConfig } from '../../../../models/ui/data-row.model';
 import { BadgeComponent } from '../../ui/badge/badge.component';
 import { IconComponent } from '../../ui/icon/icon.component';
 import { ButtonComponent } from '../../ui/button/button.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-data-row',
-  imports: [BadgeComponent, IconComponent, ButtonComponent],
+  imports: [BadgeComponent, ButtonComponent, MatDividerModule],
   templateUrl: './data-row.component.html',
   styleUrl: './data-row.component.css',
 })

@@ -1,0 +1,38 @@
+.btn-custom {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  background-color: transparent;
+  /* font-weight: 550; */
+  font-family: 'Poppins';
+  color: var(--color-text);
+}
+
+/*** Appearance: Link */
+.btn-custom.link {
+  border: none;
+  &:hover {
+    text-decoration: underline;
+    font-weight: 550;
+  }
+}
+
+/** Size: sm */
+.btn-custom.sm {
+  border-radius: 5px;
+  padding: 0px 8px;
+  font-size: var(--font-size-sm)
+}
+
+
+
+/** Disabled State */
+.btn-custom:disabled,
+.btn-custom[disabled]{
+  border: none;
+  background: var(--color-bg-gray-idle);
+  color: var(--color-text-gray-light);
+}

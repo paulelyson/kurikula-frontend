@@ -14,7 +14,7 @@ export class ButtonComponent {
   @Input() action: string = '';
   @Input() variant: Variant = 'neutral';
   @Input() appearance: ButtonAppearance = 'filled';
-  @Input() size: Size = 'md';
+  @Input() size: Size = 'sm';
   @Input() type: 'submit' | 'button' | 'reset' = 'button';
   @Input() shade: ButtonShade = 'default';
   @Input() width: ButtonWidth = 'width-auto';
