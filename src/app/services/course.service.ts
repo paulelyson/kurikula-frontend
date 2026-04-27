@@ -26,9 +26,12 @@ export class CourseService {
     return this.http.get<ApiResponse<Course[]>>(environment.api_url + '/api/course', { params }).pipe(catchError(this.exceptionService.handleError));
   }
 
-  getCourseOfferings() {
+  getCourseOfferings(filter: CourseFilter) {
+    let params = new HttpParams({
+      fromObject: { ...(filter.search && { search: filter.search }) },
+    });
     return this.http
-      .get<ApiResponse<CourseOffering[]>>(environment.api_url + '/api/course-offering')
+      .get<ApiResponse<CourseOffering[]>>(environment.api_url + '/api/course-offering', { params })
       .pipe(catchError(this.exceptionService.handleError));
   }
 

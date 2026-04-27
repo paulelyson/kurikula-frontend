@@ -9,16 +9,18 @@ import { TabComponent } from '../../../shared/components/layout/tab/tab.componen
 import { CourseToolbarComponent } from '../course-toolbar/course-toolbar.component';
 import { CourseFilter } from '../../../models/filters/course-filter.model';
 import { CourseOffering } from '../../../models/data/course-offering.model';
+import { ButtonComponent } from '../../../shared/components/ui/button/button.component';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
-  imports: [TitleComponent, DataRowComponent, TabComponent, CourseToolbarComponent],
+  imports: [TitleComponent, DataRowComponent, TabComponent, CourseToolbarComponent, ButtonComponent],
 })
 export class CourseComponent implements OnInit {
   url: string = '';
   tabs: string[] = ['Courses', 'Course Offerings'];
+  hasMore: boolean = false;
   courses: WritableSignal<Course[]> = signal([]);
   courseOfferings: WritableSignal<CourseOffering[]> = signal([]);
   filter = signal<CourseFilter>(new CourseFilter());
@@ -37,11 +39,19 @@ export class CourseComponent implements OnInit {
   }
 
   getCourses() {
-    this.courseService.getCourses(this.filter()).subscribe((resp) => this.courses.set(resp.data));
+    if (this.filter().page == 1) this.courses.set([]);
+    this.courseService.getCourses(this.filter()).subscribe((resp) => {
+      this.hasMore = resp.hasNextPage;
+      this.courses.update((courses) => [...courses, ...resp.data]);
+    });
   }
 
   getCourseOfferings() {
-    this.courseService.getCourseOfferings().subscribe((resp) => this.courseOfferings.set(resp.data));
+    if (this.filter().page == 1) this.courseOfferings.set([]);
+    this.courseService.getCourseOfferings(this.filter()).subscribe((resp) => {
+      this.hasMore = resp.hasNextPage;
+      this.courseOfferings.update((coureOffers) => [...coureOffers, ...resp.data]);
+    });
   }
 
   getCourseRowData(course: Course): RowColumnConfig[] {
@@ -60,12 +70,21 @@ export class CourseComponent implements OnInit {
     this.router.navigate([this.url], navigationExtras);
   }
 
+  loadMore() {
+    const navigationExtras: NavigationExtras = {
+      queryParams: { page: this.filter().page + 1 },
+      queryParamsHandling: 'merge',
+    };
+
+    this.router.navigate([this.url], navigationExtras);
+  }
+
   queryParamsHandling(params: Params) {
     this.filter.set({
       ...this.filter(),
       page: params['page'] ? parseInt(params['page']) : 1,
       tab: params['tab'] ? params['tab'] : this.tabs[0],
-      search:  params['search']
+      search: params['search'],
     });
 
     this.filter().tab == 'Courses' ? this.getCourses() : this.getCourseOfferings();
