@@ -10,6 +10,7 @@ import { CourseToolbarComponent } from '../course-toolbar/course-toolbar.compone
 import { CourseFilter } from '../../../models/filters/course-filter.model';
 import { CourseOffering } from '../../../models/data/course-offering.model';
 import { ButtonComponent } from '../../../shared/components/ui/button/button.component';
+import { getFilterDisplay } from '../../../shared/utils/filter.util';
 
 @Component({
   selector: 'app-course',
@@ -26,6 +27,7 @@ export class CourseComponent implements OnInit {
   filter = signal<CourseFilter>(new CourseFilter());
 
   selectedTab = computed((): number => this.tabs.indexOf(this.filter().tab));
+  filterDisplay = computed(() => getFilterDisplay(this.filter()));
   constructor(
     private courseService: CourseService,
     private activatedRoute: ActivatedRoute,

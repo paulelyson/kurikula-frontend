@@ -4,3 +4,8 @@
  gap: 5px;
  align-items:flex-end;
 }
+
+.badge-wrapper {
+ display: flex;
+ gap: 5px;
+}

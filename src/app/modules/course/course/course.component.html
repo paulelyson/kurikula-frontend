@@ -1,7 +1,7 @@
 <div class="container">
   <app-title [showBottomBorder]="false">Courses</app-title>
   <app-tab [tabs]="tabs" [selected]="selectedTab()" (tabChange)="onTabChange($event)"></app-tab>
-  <app-course-toolbar></app-course-toolbar>
+  <app-course-toolbar [filters]="filterDisplay()"></app-course-toolbar>
   @if (filter().tab == 'Courses') {
     <div class="list-wrapper">
       @for (course of courses(); track course._id; let first = $first) {
