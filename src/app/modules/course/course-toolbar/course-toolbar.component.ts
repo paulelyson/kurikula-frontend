@@ -4,7 +4,7 @@ import { TabComponent } from '../../../shared/components/layout/tab/tab.componen
 
 @Component({
   selector: 'app-course-toolbar',
-  imports: [InputComponent, TabComponent],
+  imports: [InputComponent],
   templateUrl: './course-toolbar.component.html',
   styleUrl: './course-toolbar.component.css',
 })

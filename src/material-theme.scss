@@ -31,6 +31,16 @@
     }
   }
 
+  mat-tab-group {
+    .mat-mdc-tab {
+      font-size: var(--mat-form-field-container-text-size, var(--mat-sys-body-small-size));
+    }
+    // remove background
+    .mat-mdc-tab .mdc-tab__ripple::before {
+      background-color: transparent;
+    }
+  }
+
   // Mat Tab overrides
   @include mat.tabs-overrides(
     (
