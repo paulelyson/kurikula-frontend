@@ -6,12 +6,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { TitleComponent } from '../../../shared/components/layout/title/title.component';
 import { DataRowComponent } from '../../../shared/components/layout/data-row/data-row.component';
 import { TabComponent } from '../../../shared/components/layout/tab/tab.component';
+import { CourseToolbarComponent } from '../course-toolbar/course-toolbar.component';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
-  imports: [TitleComponent, DataRowComponent, TabComponent]
+  imports: [TitleComponent, DataRowComponent, TabComponent, CourseToolbarComponent]
 })
 export class CourseComponent implements OnInit {
   courses: WritableSignal<Course[]> = signal([]);
