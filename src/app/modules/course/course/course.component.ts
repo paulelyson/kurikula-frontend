@@ -37,7 +37,7 @@ export class CourseComponent implements OnInit {
   }
 
   getCourses() {
-    this.courseService.getCourses().subscribe((resp) => this.courses.set(resp.data));
+    this.courseService.getCourses(this.filter()).subscribe((resp) => this.courses.set(resp.data));
   }
 
   getCourseOfferings() {
@@ -65,6 +65,7 @@ export class CourseComponent implements OnInit {
       ...this.filter(),
       page: params['page'] ? parseInt(params['page']) : 1,
       tab: params['tab'] ? params['tab'] : this.tabs[0],
+      search:  params['search']
     });
 
     this.filter().tab == 'Courses' ? this.getCourses() : this.getCourseOfferings();

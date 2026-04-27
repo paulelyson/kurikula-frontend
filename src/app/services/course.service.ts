@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { ExceptionService } from './exception.service';
@@ -7,6 +7,7 @@ import { Course } from '../models/data/course.model';
 import { environment } from '../../environments/environment';
 import { RowActionConfig, RowColumnConfig } from '../models/ui/data-row.model';
 import { CourseOffering } from '../models/data/course-offering.model';
+import { CourseFilter } from '../models/filters/course-filter.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,12 @@ export class CourseService {
     private http: HttpClient,
   ) {}
 
-  getCourses() {
-    return this.http.get<ApiResponse<Course[]>>(environment.api_url + '/api/course').pipe(catchError(this.exceptionService.handleError));
+  getCourses(filter: CourseFilter) {
+    let params = new HttpParams({
+      fromObject: { ...(filter.search && { search: filter.search }) },
+    });
+    params = params.append('page', filter.page);
+    return this.http.get<ApiResponse<Course[]>>(environment.api_url + '/api/course', { params }).pipe(catchError(this.exceptionService.handleError));
   }
 
   getCourseOfferings() {
@@ -34,11 +39,11 @@ export class CourseService {
     const department = course.department.code;
     return [
       { id: 0, type: 'image', header: '', weight: 0.5 },
-      { id: 1, type: 'title', header: 'Title', content: title, weight: 2, subtitle: 'wa' },
+      { id: 1, type: 'title', header: 'Title', content: title, weight: 2 },
       { id: 2, type: 'text', header: 'Code', content: code, weight: 0.5 },
       { id: 3, type: 'text', header: 'Department', content: department, weight: 0.5 },
-      { id: 4, type: 'text', header: 'Units', content: '', weight: 0.5 },
-      // { id: 5, type: 'action', header: '', actions: actions, weight: 1 },
+      { id: 4, type: 'text', header: 'Units', content: String(course.units), weight: 0.5 },
+      { id: 5, type: 'action', header: '', actions: actions, weight: 1 },
     ];
   }
 
