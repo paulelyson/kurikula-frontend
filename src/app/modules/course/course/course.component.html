@@ -2,9 +2,17 @@
   <app-title [showBottomBorder]="false">Courses</app-title>
   <app-tab [tabs]="tabs" [selected]="selectedTab()" (tabChange)="onTabChange($event)"></app-tab>
   <app-course-toolbar></app-course-toolbar>
-  <div class="list-wrapper">
-    @for (course of courses(); track course._id; let first = $first) {
-      <app-data-row [columns]="getRowData(course)" [showHeader]="first" />
-    }
-  </div>
+  @if (filter().tab == 'Courses') {
+    <div class="list-wrapper">
+      @for (course of courses(); track course._id; let first = $first) {
+        <app-data-row [columns]="getCourseRowData(course)" [showHeader]="first" />
+      }
+    </div>
+  } @else {
+    <div class="list-wrapper">
+      @for (course of courseOfferings(); track course._id; let first = $first) {
+        <app-data-row [columns]="getCourseOfferingRowData(course)" [showHeader]="first" />
+      }
+    </div>
+  }
 </div>

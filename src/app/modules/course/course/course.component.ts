@@ -8,6 +8,7 @@ import { DataRowComponent } from '../../../shared/components/layout/data-row/dat
 import { TabComponent } from '../../../shared/components/layout/tab/tab.component';
 import { CourseToolbarComponent } from '../course-toolbar/course-toolbar.component';
 import { CourseFilter } from '../../../models/filters/course-filter.model';
+import { CourseOffering } from '../../../models/data/course-offering.model';
 
 @Component({
   selector: 'app-course',
@@ -19,6 +20,7 @@ export class CourseComponent implements OnInit {
   url: string = '';
   tabs: string[] = ['Courses', 'Course Offerings'];
   courses: WritableSignal<Course[]> = signal([]);
+  courseOfferings: WritableSignal<CourseOffering[]> = signal([]);
   filter = signal<CourseFilter>(new CourseFilter());
 
   selectedTab = computed((): number => this.tabs.indexOf(this.filter().tab));
@@ -35,13 +37,19 @@ export class CourseComponent implements OnInit {
   }
 
   getCourses() {
-    this.courseService.getCourses().subscribe((resp) => {
-      this.courses.set(resp.data);
-    });
+    this.courseService.getCourses().subscribe((resp) => this.courses.set(resp.data));
   }
 
-  getRowData(course: Course): RowColumnConfig[] {
-    return this.courseService.getRowData(course);
+  getCourseOfferings() {
+    this.courseService.getCourseOfferings().subscribe((resp) => this.courseOfferings.set(resp.data));
+  }
+
+  getCourseRowData(course: Course): RowColumnConfig[] {
+    return this.courseService.getCourseRowData(course);
+  }
+
+  getCourseOfferingRowData(course: CourseOffering): RowColumnConfig[] {
+    return this.courseService.getCourseOfferingRowData(course);
   }
 
   onTabChange(event: string) {
@@ -58,6 +66,7 @@ export class CourseComponent implements OnInit {
       page: params['page'] ? parseInt(params['page']) : 1,
       tab: params['tab'] ? params['tab'] : this.tabs[0],
     });
-    this.getCourses();
+
+    this.filter().tab == 'Courses' ? this.getCourses() : this.getCourseOfferings();
   }
 }

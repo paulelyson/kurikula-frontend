@@ -40,6 +40,7 @@
 }
 
 /* Badge */
+.text-col,
 .badge-col {
   display: flex;
   flex-direction: column;

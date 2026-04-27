@@ -28,7 +28,11 @@
       }
 
       @case ('text') {
-        <div class="col">{{ col.content }}</div>
+        <div class="col text-col">
+          @for (b of asArray(col.content); track b) {
+            <span>{{ b }}</span>
+          }
+        </div>
       }
 
       @case ('badge') {
