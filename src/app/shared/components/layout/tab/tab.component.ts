@@ -1,16 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { MatTabsModule } from '@angular/material/tabs';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 import { ButtonComponent } from '../../ui/button/button.component';
-
 
 @Component({
   selector: 'app-tab',
-  imports: [ MatTabsModule],
+  imports: [MatTabsModule],
   templateUrl: './tab.component.html',
   styleUrl: './tab.component.css',
 })
 export class TabComponent {
   @Input() selected: number = 0;
   @Input() tabs: string[] = [];
+  @Output() tabChange: EventEmitter<string> = new EventEmitter<string>();
+
+  onTabChange(event: MatTabChangeEvent) {
+    this.tabChange.emit(event.tab.textLabel);
+  }
 }
