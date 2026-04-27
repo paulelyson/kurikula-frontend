@@ -1,0 +1,6 @@
+.toolbar-container {
+ display: flex;
+ justify-content: flex-end;
+ gap: 5px;
+ align-items:flex-end;
+}

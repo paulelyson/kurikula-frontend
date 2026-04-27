@@ -1,7 +1,8 @@
 <div class="container">
-  <app-title>Courses</app-title>
+  <app-title [showBottomBorder]="false">Courses</app-title>
   <div class="list-wrapper">
-    <app-tab></app-tab>
+    <app-tab [tabs]="['Courses', 'CourseOfferings']"></app-tab>
+    <app-course-toolbar></app-course-toolbar>
     @for (course of courses(); track course._id; let first = $first) {
       <app-data-row [columns]="getRowData(course)" [showHeader]="first" />
     }
