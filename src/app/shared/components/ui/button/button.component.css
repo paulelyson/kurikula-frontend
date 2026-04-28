@@ -11,7 +11,8 @@
   color: var(--color-text);
   background: var(--color-bg-gray-idle);
   border: 0px solid var(--color-border-gray-idle);
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  border-radius: 4px;
 }
 
 /**
@@ -37,7 +38,7 @@
 }
 
 .btn-custom.lg {
-  padding: 4px 10px;
+  padding: 7px 18px;
   line-height: var(--font-size-lg);
   font-size: var(--font-size-lg);
 }
@@ -75,7 +76,9 @@
   color: var(--color-text-danger-default);
 }
 
-/*** Appearance: Link */
+/*
+* Appearances
+*/
 .btn-custom.link {
   border: none;
   background: transparent;
@@ -83,6 +86,17 @@
     text-decoration: underline;
     font-weight: 550;
   }
+}
+/* TODO: Right now filled just Accent color */
+.btn-custom.filled {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+/* TODO: Right now filled just white in text color */
+.btn-custom.outlined {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: var(--color-text-white);
 }
 
 /** Disabled State */

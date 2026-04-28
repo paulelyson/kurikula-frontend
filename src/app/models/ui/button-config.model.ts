@@ -7,7 +7,9 @@ export type ButtonAppearance =
   | 'outlined'
   | 'ghost' // visual style
   | 'link'
-  | 'icon';
+  | 'icon'
+  | 'tonal';
+
 
 export class ButtonConfig {
   id: number = 0;

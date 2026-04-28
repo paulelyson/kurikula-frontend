@@ -13,7 +13,7 @@ import { Size, Variant } from '../../../../models/ui/common.model';
 export class ButtonComponent {
   @Input() action: string = '';
   @Input() variant: Variant = 'neutral';
-  @Input() appearance: ButtonAppearance = 'filled';
+  @Input() appearance: ButtonAppearance = 'tonal';
   @Input() size: Size = 'sm';
   @Input() type: 'submit' | 'button' | 'reset' = 'button';
   @Input() shade: ButtonShade = 'default';
