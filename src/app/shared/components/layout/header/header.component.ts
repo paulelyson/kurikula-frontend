@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AvatarComponent } from '../../ui/avatar/avatar.component';
 import { ButtonComponent } from '../../ui/button/button.component';
@@ -10,5 +10,7 @@ import { ButtonComponent } from '../../ui/button/button.component';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  @Input() isTransparent: boolean = false;
+  @Input() isTransparent: boolean = true;
+  isLoggedIn: WritableSignal<boolean> = signal(false);
+
 }

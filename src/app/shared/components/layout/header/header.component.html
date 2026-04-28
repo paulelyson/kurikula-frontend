@@ -3,11 +3,16 @@
     <div class="nav-wrapper">
       <span style="flex: 1"></span>
       <ul class="navigation">
-        <li routerLink="/user"><a>Users</a></li>
-        <li routerLink="/course"><a>Courses</a></li>
-        <div class="avatar-wrapper">
-          <app-avatar />
-        </div>
+        @if (isLoggedIn()) {
+          <li routerLink="/user"><a>Users</a></li>
+          <li routerLink="/course"><a>Courses</a></li>
+          <div class="avatar-wrapper">
+            <app-avatar />
+          </div>
+        } @else {
+          <app-button appearance="outlined" size="lg">Login</app-button>
+          <app-button appearance="filled" size="lg">Register</app-button>
+        }
       </ul>
     </div>
   </header>

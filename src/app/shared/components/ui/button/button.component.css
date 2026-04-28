@@ -97,6 +97,8 @@
   background: transparent;
   border: 1px solid currentColor;
   color: var(--color-text-white);
+  /* border: 1px solid currentColor;
+  color: var(--color-text); */
 }
 
 /** Disabled State */
