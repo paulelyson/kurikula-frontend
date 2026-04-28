@@ -2,7 +2,7 @@
   <div class="badge-wrapper">
     @for (filter of filters; track filter.field) {
       @if (filter.show) {
-        <app-badge [hasCloseIcon]="filter.canClose">{{ filter.value }} </app-badge>
+        <app-badge [hasCloseIcon]="filter.canClose" size="sm" (closed)="onFilterClose(filter)">{{ filter.value }} </app-badge>
       }
     }
   </div>

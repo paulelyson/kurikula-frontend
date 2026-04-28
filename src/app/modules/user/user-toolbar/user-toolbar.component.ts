@@ -29,4 +29,12 @@ export class UserToolbarComponent {
     };
     this.router.navigate([this.url], navigationExtras);
   }
+
+  onFilterClose(filter: FilterDisplay) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: { [filter.field]: null },
+      queryParamsHandling: 'merge',
+    };
+    this.router.navigate([this.url], navigationExtras);
+  }
 }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Size, Variant } from '../../../../models/ui/common.model';
+import { IconComponent } from '../icon/icon.component';
 
 interface IconType {
   variant: Variant;
@@ -10,7 +11,7 @@ interface IconType {
 
 @Component({
   selector: 'app-badge',
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, IconComponent],
   templateUrl: './badge.component.html',
   styleUrl: './badge.component.css',
 })

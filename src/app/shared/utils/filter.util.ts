@@ -6,8 +6,8 @@ export const getFilterDisplay = (filter: Record<string, any>, dontShow: string[]
       field: key,
       value: val,
       show: !dontShow.includes(key),
-      // canClose: !unClosed.includes(key),
-      canClose: false
+      canClose: !unClosed.includes(key),
+      // canClose: false
     }))
     .filter((item) => item.value);
 };
