@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --color-background-header: #eaefdb;
+  /* Header */
+  --color-bg-header: #eaefdb;
+  --color-bg-header-hover: #d2ead8;
+
+
   --color-text: #1a1b1f;
+  --color-accent: #f1b12b;
   /* ================================
 	FONTS
 	================================ */
