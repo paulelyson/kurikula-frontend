@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, computed, effect, OnInit, signal, untracked, WritableSignal } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/data/user.model';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -9,6 +9,8 @@ import { UserToolbarComponent } from '../user-toolbar/user-toolbar.component';
 import { DialogService } from '../../../services/dialog.service';
 import { UserFilter } from '../../../models/filters/user-filter.model';
 import { getFilterDisplay } from '../../../shared/utils/filter.util';
+import { DepartmentService } from '../../../services/department.service';
+import { isObjectId } from '../../../shared/utils/string.util';
 
 @Component({
   selector: 'app-user',
@@ -21,10 +23,23 @@ export class UserComponent implements OnInit {
   filter: WritableSignal<UserFilter> = signal<UserFilter>(new UserFilter());
   filterDisplay = computed(() => getFilterDisplay(this.filter()));
 
+  filterEffect = effect(() => {
+    const dept = this.filter().department;
+    if (dept && isObjectId(dept)) {
+      this.departmentService.getDepartmentById(dept).subscribe((resp) => {
+        this.filter.update(({ department, ...rest }) => ({
+          department: resp.data.code,
+          ...rest,
+        }));
+      });
+    }
+  });
+
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private dialogService: DialogService,
+    private departmentService: DepartmentService,
   ) {}
 
   ngOnInit(): void {
@@ -54,9 +69,9 @@ export class UserComponent implements OnInit {
   queryParamsHandling(params: Params) {
     this.filter.set({
       ...this.filter(),
+      department: params['department'],
       page: params['page'] ? parseInt(params['page']) : 1,
       search: params['search'],
-      department: params['department'],
     });
     this.getUsers();
   }

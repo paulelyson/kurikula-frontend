@@ -18,4 +18,8 @@ export class DepartmentService {
   getDepartments() {
     return this.http.get<ApiResponse<Department[]>>(environment.api_url + '/api/department').pipe(catchError(this.exceptionService.handleError));
   }
+
+  getDepartmentById(id: string) {
+    return this.http.get<ApiResponse<Department>>(environment.api_url + '/api/department/' + id).pipe(catchError(this.exceptionService.handleError));
+  }
 }
