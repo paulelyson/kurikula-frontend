@@ -1,12 +1,14 @@
-<header id="header">
-  <div class="nav-wrapper">
-    <span style="flex: 1"></span>
-    <ul class="navigation">
-      <li routerLink="/user"><a>Users</a></li>
-      <li routerLink="/course"><a>Courses</a></li>
-      <div class="avatar-wrapper">
-        <app-avatar />
-      </div>
-    </ul>
-  </div>
-</header>
+<div [class.transparent]="isTransparent">
+  <header id="header">
+    <div class="nav-wrapper">
+      <span style="flex: 1"></span>
+      <ul class="navigation">
+        <li routerLink="/user"><a>Users</a></li>
+        <li routerLink="/course"><a>Courses</a></li>
+        <div class="avatar-wrapper">
+          <app-avatar />
+        </div>
+      </ul>
+    </div>
+  </header>
+</div>

@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AvatarComponent } from '../../ui/avatar/avatar.component';
+import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, AvatarComponent],
+  imports: [RouterLink, AvatarComponent, ButtonComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  @Input() isTransparent: boolean = false;
+}
