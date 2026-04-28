@@ -4,4 +4,6 @@ export type Variant = 'neutral' | 'primary' | 'accent' | 'success' | 'warning' |
 export interface FilterDisplay {
   field: string;
   value: any;
+  show: boolean;
+  canClose: boolean;
 }

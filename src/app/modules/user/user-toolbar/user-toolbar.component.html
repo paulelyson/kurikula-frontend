@@ -1,9 +1,11 @@
 <div class="toolbar-container">
   <div class="badge-wrapper">
     @for (filter of filters; track filter.field) {
-      <app-badge [hasCloseIcon]="false">{{ filter.value }} </app-badge>
+      @if (filter.show) {
+        <app-badge [hasCloseIcon]="filter.canClose">{{ filter.value }} </app-badge>
+      }
     }
   </div>
   <span style="flex: 1"></span>
-  <app-input suffix_icon="search" placeholder="Name" [formControl]="searchControl"/>
+  <app-input suffix_icon="search" placeholder="Name" [formControl]="searchControl" />
 </div>
