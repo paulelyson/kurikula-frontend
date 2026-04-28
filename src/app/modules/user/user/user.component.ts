@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, computed, OnInit, signal, WritableSignal } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/data/user.model';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -7,6 +7,8 @@ import { TitleComponent } from '../../../shared/components/layout/title/title.co
 import { DataRowComponent } from '../../../shared/components/layout/data-row/data-row.component';
 import { UserToolbarComponent } from '../user-toolbar/user-toolbar.component';
 import { DialogService } from '../../../services/dialog.service';
+import { UserFilter } from '../../../models/filters/user-filter.model';
+import { getFilterDisplay } from '../../../shared/utils/filter.util';
 
 @Component({
   selector: 'app-user',
@@ -16,6 +18,8 @@ import { DialogService } from '../../../services/dialog.service';
 })
 export class UserComponent implements OnInit {
   users: WritableSignal<User[]> = signal([]);
+  filter: WritableSignal<UserFilter> = signal<UserFilter>(new UserFilter());
+  filterDisplay = computed(() => getFilterDisplay(this.filter()));
 
   constructor(
     private userService: UserService,
@@ -40,7 +44,7 @@ export class UserComponent implements OnInit {
   onActionClicked(event: string, user: User) {
     switch (event) {
       case 'View Detail':
-        this.dialogService.openUserDetailDialog(user)
+        this.dialogService.openUserDetailDialog(user);
         break;
       default:
         break;
@@ -48,6 +52,12 @@ export class UserComponent implements OnInit {
   }
 
   queryParamsHandling(params: Params) {
+    this.filter.set({
+      ...this.filter(),
+      page: params['page'] ? parseInt(params['page']) : 1,
+      search: params['search'],
+      department: params['department'],
+    });
     this.getUsers();
   }
 }

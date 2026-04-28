@@ -1,6 +1,6 @@
 <div class="container">
   <app-title>User</app-title>
-  <app-user-toolbar />
+  <app-user-toolbar [filters]="filterDisplay()" />
   <div class="list-wrapper">
     @for (user of users(); track user._id; let first = $first) {
       <app-data-row [columns]="getRowData(user)" [showHeader]="first" (actionclicked)="onActionClicked($event, user)" />
